@@ -37,22 +37,26 @@ export const ProductDetails = ({
         <GridItem colSpan={{ base: 12, lg: 7, xl: 8 }}>
           <Flex flexDirection="column" gap={{ base: 3, lg: 5 }}>
             {featuredProductImage && (
-              <Center>
-                <CtfImage {...featuredProductImage} />
-              </Center>
+              <Box bg={theme.f36.gray200} pt={5} pb={5}>
+                <Center>
+                  <CtfImage {...featuredProductImage} />
+                </Center>
+              </Box>
             )}
             {productImagesCollection?.items &&
               productImagesCollection.items.map((image) => {
                 return image ? (
-                  <Center>
-                    <CtfImage
-                      key={image.sys.id}
-                      imageProps={{
-                        sizes: "(max-width: 1200px) 70vw, 100vw",
-                      }}
-                      {...image}
-                    />
-                  </Center>
+                  <Box bg={theme.f36.gray200} pt={5} pb={5}>
+                    <Center>
+                      <CtfImage
+                        key={image.sys.id}
+                        imageProps={{
+                          sizes: "(max-width: 1200px) 70vw, 100vw",
+                        }}
+                        {...image}
+                      />
+                    </Center>
+                  </Box>
                 ) : null;
               })}
           </Flex>
@@ -62,7 +66,6 @@ export const ProductDetails = ({
           <Box
             width="100%"
             bg={theme.f36.gray200}
-            borderRadius={4}
             px={{ base: 4, lg: 6 }}
             pt={{ base: 6, lg: 6 }}
             pb={{ base: 6, lg: 6 }}

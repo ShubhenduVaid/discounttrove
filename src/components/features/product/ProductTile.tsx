@@ -1,4 +1,4 @@
-import { Box, Text, Center } from "@chakra-ui/react";
+import { Box, Text, Center, useTheme } from "@chakra-ui/react";
 import Link from "next/link";
 
 import { CtfImage } from "@src/components/features/contentful/ctf-image";
@@ -9,10 +9,18 @@ export const ProductTile = ({
   price,
   slug,
 }: PageProductFieldsFragment) => {
+  const theme = useTheme();
+
   return slug ? (
     <Box as={Link} href={slug}>
       {featuredProductImage && (
-        <Box height={"90%"} borderRadius={4} overflow="hidden">
+        <Box
+          bg={theme.f36.gray200}
+          height={"90%"}
+          pt={5}
+          pb={5}
+          overflow="hidden"
+        >
           <Center>
             <CtfImage {...featuredProductImage} />
           </Center>
