@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import localFont from "@next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 
 import type { AppProps } from "next/app";
 
@@ -74,6 +75,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     >
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </ChakraProvider>
   );
