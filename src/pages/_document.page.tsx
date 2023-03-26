@@ -34,6 +34,10 @@ export default function Document() {
           content="/favicons/browserconfig.xml"
         />
         <meta name="theme-color" content="#ffffff" />
+        <meta
+          name="google-site-verification"
+          content="u-qC8yAW05q7n7Nd8cSe-CmV-S1HVhf88plfQhUjryM"
+        />
       </Head>
       <body>
         <Main />
