@@ -25,7 +25,7 @@ const Page = ({
             }}
           >
             <ProductTileGrid
-              title="You may also like"
+              title="Products related to this item"
               products={product.relatedProductsCollection.items}
             />
           </Box>
