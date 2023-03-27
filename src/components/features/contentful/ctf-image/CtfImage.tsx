@@ -5,6 +5,7 @@ import { ImageFieldsFragment } from "@src/lib/__generated/sdk";
 
 interface ImageProps extends ImageFieldsFragment {
   imageProps?: Omit<NextImageProps, "src" | "alt">;
+  quality?: number;
 }
 
 export const CtfImage = ({
@@ -13,6 +14,7 @@ export const CtfImage = ({
   height,
   title,
   imageProps,
+  quality,
 }: ImageProps) => {
   if (!url || !width || !height) return null;
 
@@ -26,7 +28,7 @@ export const CtfImage = ({
       height={height}
       alt={title || ""}
       sizes="(max-width: 1200px) 100vw, 50vw"
-      quality={100}
+      quality={quality || 100}
       placeholder="blur"
       blurDataURL={blurURL.toString()}
       {...imageProps}
