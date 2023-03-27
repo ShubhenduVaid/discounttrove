@@ -26,6 +26,7 @@ export const CtfImage = ({
       height={height}
       alt={title || ""}
       sizes="(max-width: 1200px) 100vw, 50vw"
+      quality={100}
       placeholder="blur"
       blurDataURL={blurURL.toString()}
       {...imageProps}
