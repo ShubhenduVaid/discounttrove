@@ -15,7 +15,8 @@ export const ProductTile = ({
     <Box as={Link} href={slug}>
       {featuredProductImage && (
         <Box
-          bg={theme.f36.gray200}
+          bg={theme.f36.gray50}
+          borderRadius="lg"
           height={"90%"}
           pt={5}
           pb={5}

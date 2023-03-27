@@ -37,7 +37,7 @@ export const ProductDetails = ({
         <GridItem colSpan={{ base: 12, lg: 7, xl: 8 }}>
           <Flex flexDirection="column" gap={{ base: 3, lg: 5 }}>
             {featuredProductImage && (
-              <Box bg={theme.f36.gray200} pt={5} pb={5}>
+              <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
                 <Center>
                   <CtfImage {...featuredProductImage} />
                 </Center>
@@ -46,7 +46,7 @@ export const ProductDetails = ({
             {productImagesCollection?.items &&
               productImagesCollection.items.map((image) => {
                 return image ? (
-                  <Box bg={theme.f36.gray200} pt={5} pb={5}>
+                  <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
                     <Center>
                       <CtfImage
                         key={image.sys.id}
@@ -64,8 +64,9 @@ export const ProductDetails = ({
 
         <GridItem colSpan={{ base: 12, lg: 5, xl: 4 }}>
           <Box
+            borderRadius="lg"
             width="100%"
-            bg={theme.f36.gray200}
+            bg={theme.f36.gray100}
             px={{ base: 4, lg: 6 }}
             pt={{ base: 6, lg: 6 }}
             pb={{ base: 6, lg: 6 }}
