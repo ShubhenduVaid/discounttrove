@@ -30,6 +30,21 @@ const Page = ({
             />
           </Box>
         )}
+      {product.categoriesCollection?.items &&
+        product.categoriesCollection?.items.length > 0 && (
+          <Box
+            mt={{
+              base: 5,
+              md: 9,
+              lg: 16,
+            }}
+          >
+            <ProductTileGrid
+              title="Trending Now"
+              products={product.categoriesCollection.items}
+            />
+          </Box>
+        )}
     </>
   );
 };

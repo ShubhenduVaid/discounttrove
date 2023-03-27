@@ -692,6 +692,7 @@ export type PageLandingProductsCollection = {
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProduct = Entry & {
   __typename?: 'PageProduct';
+  categoriesCollection?: Maybe<PageProductCategoriesCollection>;
   contentfulMetadata: ContentfulMetadata;
   description?: Maybe<Scalars['String']>;
   featuredProductImage?: Maybe<Asset>;
@@ -705,6 +706,15 @@ export type PageProduct = Entry & {
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
   url?: Maybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductCategoriesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -781,6 +791,14 @@ export type PageProductUrlArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
+export type PageProductCategoriesCollection = {
+  __typename?: 'PageProductCategoriesCollection';
+  items: Array<Maybe<PageProduct>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
 export type PageProductCollection = {
   __typename?: 'PageProductCollection';
   items: Array<Maybe<PageProduct>>;
@@ -792,6 +810,7 @@ export type PageProductCollection = {
 export type PageProductFilter = {
   AND?: InputMaybe<Array<InputMaybe<PageProductFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<PageProductFilter>>>;
+  categoriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description?: InputMaybe<Scalars['String']>;
   description_contains?: InputMaybe<Scalars['String']>;
@@ -1135,6 +1154,9 @@ export type PageProductFieldsFragment = (
   { __typename?: 'PageProduct', relatedProductsCollection?: { __typename?: 'PageProductRelatedProductsCollection', items: Array<(
       { __typename?: 'PageProduct' }
       & BasePageProductFieldsFragment
+    ) | null> } | null, categoriesCollection?: { __typename?: 'PageProductCategoriesCollection', items: Array<(
+      { __typename?: 'PageProduct' }
+      & BasePageProductFieldsFragment
     ) | null> } | null }
   & BasePageProductFieldsFragment
 );
@@ -1238,6 +1260,11 @@ export const PageProductFieldsFragmentDoc = gql`
     fragment PageProductFields on PageProduct {
   ...BasePageProductFields
   relatedProductsCollection(limit: 10) {
+    items {
+      ...BasePageProductFields
+    }
+  }
+  categoriesCollection(limit: 10) {
     items {
       ...BasePageProductFields
     }
