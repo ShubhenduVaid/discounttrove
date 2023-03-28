@@ -35,19 +35,23 @@ export const ProductDetails = ({
     <Container mt={{ base: 6, lg: 16 }}>
       <Grid templateColumns="repeat(12, 1fr)" gap={{ base: 5, lg: 12 }}>
         <GridItem colSpan={{ base: 12, lg: 7, xl: 8 }}>
-          <Flex flexDirection="column" gap={{ base: 3, lg: 5 }}>
+          <Grid
+            templateColumns={{ base: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+            rowGap={{ base: 6, lg: 6 }}
+            columnGap={{ base: 4, lg: 24 }}
+          >
             {featuredProductImage && (
-              <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
-                <Center>
+              <GridItem>
+                <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
                   <CtfImage {...featuredProductImage} />
-                </Center>
-              </Box>
+                </Box>
+              </GridItem>
             )}
             {productImagesCollection?.items &&
-              productImagesCollection.items.map((image) => {
+              productImagesCollection.items.map((image, index) => {
                 return image ? (
-                  <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
-                    <Center>
+                  <GridItem key={index}>
+                    <Box borderRadius="lg" bg={theme.f36.gray50} pt={5} pb={5}>
                       <CtfImage
                         key={image.sys.id}
                         imageProps={{
@@ -55,11 +59,11 @@ export const ProductDetails = ({
                         }}
                         {...image}
                       />
-                    </Center>
-                  </Box>
+                    </Box>
+                  </GridItem>
                 ) : null;
               })}
-          </Flex>
+          </Grid>
         </GridItem>
 
         <GridItem colSpan={{ base: 12, lg: 5, xl: 4 }}>
