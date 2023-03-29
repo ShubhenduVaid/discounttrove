@@ -60,7 +60,7 @@ module.exports = withPlugins(plugins, {
 
   pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js"],
 
-  webpack(config) {
+  webpack(config, { webpack }) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
