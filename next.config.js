@@ -20,6 +20,7 @@ module.exports = withPlugins(plugins, {
    */
   env: {
     ENVIRONMENT_NAME: process.env.ENVIRONMENT_NAME,
+    VERCEL_NO_EDGE_HANDLING: true,
   },
 
   /**
