@@ -38,7 +38,6 @@ export default function Document() {
           name="google-site-verification"
           content="u-qC8yAW05q7n7Nd8cSe-CmV-S1HVhf88plfQhUjryM"
         />
-        <link rel="canonical" href="https://www.discounttrove.co.uk/"></link>
       </Head>
       <body>
         <Main />

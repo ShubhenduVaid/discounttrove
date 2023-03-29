@@ -65,6 +65,12 @@ module.exports = withPlugins(plugins, {
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
+    // Disable Vercel's automatic addition of canonical links
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __VERCEL_NO_CANONICAL: JSON.stringify(true),
+      })
+    );
 
     return config;
   },
