@@ -20,7 +20,6 @@ module.exports = withPlugins(plugins, {
    */
   env: {
     ENVIRONMENT_NAME: process.env.ENVIRONMENT_NAME,
-    VERCEL_NO_EDGE_HANDLING: true,
   },
 
   /**
@@ -61,17 +60,11 @@ module.exports = withPlugins(plugins, {
 
   pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js"],
 
-  webpack(config, { webpack }) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
-    // Disable Vercel's automatic addition of canonical links
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        __VERCEL_NO_CANONICAL: JSON.stringify(true),
-      })
-    );
 
     return config;
   },

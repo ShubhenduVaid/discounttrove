@@ -1,8 +1,8 @@
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
-import URI from 'urijs';
+import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
+import URI from "urijs";
 
-import { SeoFieldsFragment } from '@src/lib/__generated/sdk';
+import { SeoFieldsFragment } from "@src/lib/__generated/sdk";
 
 const generateUrl = (locale: string, slug: string) =>
   new URI(process.env.NEXT_PUBLIC_BASE_URL).segment([locale, slug]).toString();
@@ -17,10 +17,10 @@ export const SeoFields = ({
 }: SeoFieldsFragment) => {
   const { locale, locales, asPath } = useRouter();
 
-  const url = generateUrl(locale || '', asPath);
+  const url = generateUrl(locale || "", asPath);
 
   const languageAlternates =
-    locales?.map(locale => ({
+    locales?.map((locale) => ({
       hrefLang: locale,
       href: generateUrl(locale, asPath),
     })) || [];
@@ -29,27 +29,27 @@ export const SeoFields = ({
     <NextSeo
       title={pageTitle || undefined}
       description={pageDescription || undefined}
-      canonical={canonicalUrl || url || ''}
+      canonical={""}
       nofollow={nofollow || false}
       noindex={noindex || false}
       languageAlternates={languageAlternates}
       openGraph={{
-        type: 'website',
+        type: "website",
         locale: locale,
-        url: url || '',
+        url: "",
         title: pageTitle || undefined,
         description: pageDescription || undefined,
-        images: shareImagesCollection?.items.map(item => ({
-          url: item?.url || '',
+        images: shareImagesCollection?.items.map((item) => ({
+          url: item?.url || "",
           width: item?.width || 0,
           height: item?.height || 0,
-          alt: item?.description || '',
-          type: item?.contentType || '',
+          alt: item?.description || "",
+          type: item?.contentType || "",
         })),
       }}
       twitter={{
-        site: url,
-        cardType: 'summary_large_image',
+        site: "",
+        cardType: "summary_large_image",
       }}
     />
   );
