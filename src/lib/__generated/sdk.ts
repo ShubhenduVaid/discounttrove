@@ -705,6 +705,7 @@ export type PageProduct = Entry & {
   seoFields?: Maybe<ComponentSeo>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
+  type?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
 };
 
@@ -787,6 +788,12 @@ export type PageProductSlugArgs = {
 
 
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductTypeArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProductUrlArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
@@ -855,6 +862,13 @@ export type PageProductFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
+  type?: InputMaybe<Scalars['String']>;
+  type_contains?: InputMaybe<Scalars['String']>;
+  type_exists?: InputMaybe<Scalars['Boolean']>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  type_not?: InputMaybe<Scalars['String']>;
+  type_not_contains?: InputMaybe<Scalars['String']>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   url?: InputMaybe<Scalars['String']>;
   url_contains?: InputMaybe<Scalars['String']>;
   url_exists?: InputMaybe<Scalars['Boolean']>;
@@ -912,6 +926,8 @@ export enum PageProductOrder {
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TypeAsc = 'type_ASC',
+  TypeDesc = 'type_DESC',
   UrlAsc = 'url_ASC',
   UrlDesc = 'url_DESC'
 }
@@ -1139,7 +1155,7 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, slug?: string | null, name?: string | null, url?: string | null, description?: string | null, price?: number | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, type?: string | null, slug?: string | null, name?: string | null, url?: string | null, description?: string | null, price?: number | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
     { __typename?: 'ComponentSeo' }
     & SeoFieldsFragment
   ) | null, featuredProductImage?: (
@@ -1238,6 +1254,7 @@ export const BasePageProductFieldsFragmentDoc = gql`
     spaceId
   }
   internalName
+  type
   slug
   seoFields {
     ...SeoFields

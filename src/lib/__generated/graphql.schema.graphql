@@ -508,6 +508,7 @@ type PageProduct implements Entry {
   seoFields(locale: String, preview: Boolean): ComponentSeo
   slug(locale: String): String
   sys: Sys!
+  type(locale: String): String
   url(locale: String): String
 }
 
@@ -573,6 +574,13 @@ input PageProductFilter {
   slug_not_contains: String
   slug_not_in: [String]
   sys: SysFilter
+  type: String
+  type_contains: String
+  type_exists: Boolean
+  type_in: [String]
+  type_not: String
+  type_not_contains: String
+  type_not_in: [String]
   url: String
   url_contains: String
   url_exists: Boolean
@@ -605,6 +613,8 @@ enum PageProductOrder {
   sys_publishedAt_DESC
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
   url_ASC
   url_DESC
 }

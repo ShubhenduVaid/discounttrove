@@ -5,6 +5,7 @@ fragment BasePageProductFields on PageProduct {
     spaceId
   }
   internalName
+  type
   slug
   seoFields {
     ...SeoFields
