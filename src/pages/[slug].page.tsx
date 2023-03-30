@@ -52,7 +52,10 @@ const Page = ({
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   locale,
+  res,
 }) => {
+  res.setHeader("Cache-Control", "public, max-age=900");
+
   if (!params?.slug) {
     return {
       notFound: true,
