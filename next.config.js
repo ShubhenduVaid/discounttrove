@@ -40,7 +40,7 @@ module.exports = withPlugins(plugins, {
   // swcMinify: true,
 
   poweredByHeader: false,
-  reactStrictMode: false,
+  reactStrictMode: true,
   compress: true,
 
   /**

@@ -14,11 +14,21 @@ const ErrorPage404 = () => {
 
   return (
     <Container as={Flex} flexDirection="column" my="auto" py={20}>
-      <Heading as="h1" variant="h2">
-        {"notFound.title"}
+      <Heading as="h1" size="3xl" variant="h1">
+        {"SORRY"}
       </Heading>
-      <Text mt={4}>
-        <TextLink color={theme.f36.blue500} as={Link} href="/" />
+      <Text mt={4} fontSize="4xl">
+        {"We couldn't find that page"}
+      </Text>
+      <Text fontSize="4xl" mt={4}>
+        Go to our{" "}
+        <TextLink
+          color={theme.f36.blue500}
+          as={Link}
+          href="https://discounttrove.co.uk/"
+        >
+          Home Page
+        </TextLink>
       </Text>
     </Container>
   );
