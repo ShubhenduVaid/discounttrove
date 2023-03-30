@@ -28,6 +28,10 @@ export default function Document() {
           color="#5bbad5"
         />
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link
+          rel="publisher"
+          href="https://www.instagram.com/discounttrove.co.uk/"
+        ></link>
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta
           name="msapplication-config"
@@ -40,8 +44,9 @@ export default function Document() {
         />
         <meta
           name="keywords"
-          content="Best Discounts, Best Deals, Cheap Deals, Spring Sale, Women Clothes, Women Discounted Dress, Kids Dress, Fashionable Dress, Cheap Accessories, Men fashion"
+          content="Best Discounts, Best Deals, Cheap Deals, Spring Sale, Women Clothes, Kids Dress"
         ></meta>
+        <meta name="author" content="Discount Trove"></meta>
       </Head>
       <body>
         <Main />

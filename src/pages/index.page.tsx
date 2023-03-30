@@ -31,9 +31,11 @@ const Page = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const data = await client.pageLanding({ locale });
+    context.res.setHeader("Cache-Control", "public, max-age=900");
+
+    const data = await client.pageLanding();
 
     const page = data.pageLandingCollection?.items[0];
 
