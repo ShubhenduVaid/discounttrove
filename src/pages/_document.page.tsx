@@ -38,6 +38,10 @@ export default function Document() {
           name="google-site-verification"
           content="u-qC8yAW05q7n7Nd8cSe-CmV-S1HVhf88plfQhUjryM"
         />
+        <meta
+          name="keywords"
+          content="Best Discounts, Best Deals, Cheap Deals, Spring Sale, Women Clothes, Women Discounted Dress, Kids Dress, Fashionable Dress, Cheap Accessories, Men fashion"
+        ></meta>
       </Head>
       <body>
         <Main />
