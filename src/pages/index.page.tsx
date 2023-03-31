@@ -33,7 +33,7 @@ const Page = ({
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    context.res.setHeader("Cache-Control", "public, max-age=900");
+    context.res.setHeader("Cache-Control", "public, max-age=1800");
 
     const data = await client.pageLanding();
 
