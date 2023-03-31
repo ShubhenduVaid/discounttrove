@@ -26,6 +26,7 @@ export const CtfImage = ({
       src={url}
       width={width}
       height={height}
+      title={title || ""}
       alt={title || ""}
       sizes="(max-width: 1200px) 100vw, 50vw"
       quality={quality || 100}
