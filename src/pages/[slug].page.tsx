@@ -80,7 +80,8 @@ export const getServerSideProps: GetServerSideProps = async ({
         product,
       },
     };
-  } catch {
+  } catch (error) {
+    console.error("slug ", error);
     return {
       notFound: true,
     };

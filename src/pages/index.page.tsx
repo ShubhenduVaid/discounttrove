@@ -50,7 +50,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         page,
       },
     };
-  } catch {
+  } catch (error) {
+    console.error("slug ", error);
     return {
       notFound: true,
     };
