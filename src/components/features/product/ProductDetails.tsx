@@ -1,14 +1,14 @@
 import {
   Box,
   Container,
-  Flex,
   Grid,
   GridItem,
   Heading,
   Text,
   useTheme,
   Button,
-  Center,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import { ShoppingCartIcon } from "@contentful/f36-icons";
 
@@ -17,13 +17,19 @@ import { PageProductFieldsFragment } from "@src/lib/__generated/sdk";
 
 export const ProductDetails = ({
   name,
-  url,
-  price,
+  amazonUrl,
+  aliexpressUrl,
+  amazonPrice,
+  aliexpressPrice,
   description,
   featuredProductImage,
   productImagesCollection,
 }: PageProductFieldsFragment) => {
   const theme = useTheme();
+
+  const _amazonPrice = amazonPrice && parseFloat(amazonPrice).toFixed(2);
+  const _aliexpressPrice =
+    aliexpressPrice && parseFloat(aliexpressPrice).toFixed(2);
 
   const handleClick = (url) => {
     if (url) {
@@ -78,32 +84,77 @@ export const ProductDetails = ({
             <Heading as="h1" variant="h3">
               {name}
             </Heading>
-            {price && (
-              <Text mt={1} fontSize="2xl" fontWeight="500" color="#036FE3">
-                £{price}
-              </Text>
+            {_amazonPrice && (
+              <Flex mt="3">
+                <Button
+                  onClick={() => handleClick(amazonUrl)}
+                  width="70%"
+                  variant="primary"
+                  rightIcon={
+                    <Box
+                      as={ShoppingCartIcon}
+                      width="18px"
+                      height="18px"
+                      fill="white"
+                      variant="white"
+                    />
+                  }
+                >
+                  {"Buy on Amazon"}
+                </Button>
+                <Spacer />
+                <Text
+                  borderRadius="lg"
+                  pt={2}
+                  pb={1}
+                  pr={3}
+                  pl={3}
+                  bg="#ff5f3b"
+                  fontSize={{ base: "sm", md: "md", lg: "l" }}
+                  fontWeight="bold"
+                  color="white"
+                >
+                  £{_amazonPrice}
+                </Text>
+              </Flex>
+            )}
+            {_aliexpressPrice && (
+              <Flex mt="3">
+                <Button
+                  onClick={() => handleClick(aliexpressUrl)}
+                  width="70%"
+                  variant="primary"
+                  rightIcon={
+                    <Box
+                      as={ShoppingCartIcon}
+                      width="18px"
+                      height="18px"
+                      fill="white"
+                      variant="white"
+                    />
+                  }
+                >
+                  {"Buy on AliExpress"}
+                </Button>
+                <Spacer />
+                <Text
+                  borderRadius="lg"
+                  pt={2}
+                  pb={1}
+                  pr={3}
+                  pl={3}
+                  bg="#ff5f3b"
+                  fontSize={{ base: "sm", md: "md", lg: "l" }}
+                  fontWeight="bold"
+                  color="white"
+                >
+                  £{_aliexpressPrice}
+                </Text>
+              </Flex>
             )}
             <Text mt={5} color={theme.f36.gray700}>
               {description}
             </Text>
-            <Flex flexDirection="row" mt={6}>
-              <Button
-                onClick={() => handleClick(url)}
-                width="100%"
-                variant="primary"
-                rightIcon={
-                  <Box
-                    as={ShoppingCartIcon}
-                    width="18px"
-                    height="18px"
-                    fill="white"
-                    variant="white"
-                  />
-                }
-              >
-                {"Add to Cart"}
-              </Button>
-            </Flex>
           </Box>
         </GridItem>
       </Grid>

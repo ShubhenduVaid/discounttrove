@@ -692,7 +692,12 @@ export type PageLandingProductsCollection = {
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProduct = Entry & {
   __typename?: 'PageProduct';
+  aliexpressPrice?: Maybe<Scalars['String']>;
+  aliexpressUrl?: Maybe<Scalars['String']>;
+  amazonPrice?: Maybe<Scalars['String']>;
+  amazonUrl?: Maybe<Scalars['String']>;
   categoriesCollection?: Maybe<PageProductCategoriesCollection>;
+  category?: Maybe<Scalars['String']>;
   contentfulMetadata: ContentfulMetadata;
   description?: Maybe<Scalars['String']>;
   featuredProductImage?: Maybe<Asset>;
@@ -711,11 +716,41 @@ export type PageProduct = Entry & {
 
 
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductAliexpressPriceArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductAliexpressUrlArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductAmazonPriceArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductAmazonUrlArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProductCategoriesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
+export type PageProductCategoryArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -817,7 +852,42 @@ export type PageProductCollection = {
 export type PageProductFilter = {
   AND?: InputMaybe<Array<InputMaybe<PageProductFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<PageProductFilter>>>;
+  aliexpressPrice?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_contains?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_exists?: InputMaybe<Scalars['Boolean']>;
+  aliexpressPrice_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressPrice_not?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_not_contains?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressUrl?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_contains?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_exists?: InputMaybe<Scalars['Boolean']>;
+  aliexpressUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressUrl_not?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_not_contains?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonPrice?: InputMaybe<Scalars['String']>;
+  amazonPrice_contains?: InputMaybe<Scalars['String']>;
+  amazonPrice_exists?: InputMaybe<Scalars['Boolean']>;
+  amazonPrice_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonPrice_not?: InputMaybe<Scalars['String']>;
+  amazonPrice_not_contains?: InputMaybe<Scalars['String']>;
+  amazonPrice_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonUrl?: InputMaybe<Scalars['String']>;
+  amazonUrl_contains?: InputMaybe<Scalars['String']>;
+  amazonUrl_exists?: InputMaybe<Scalars['Boolean']>;
+  amazonUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonUrl_not?: InputMaybe<Scalars['String']>;
+  amazonUrl_not_contains?: InputMaybe<Scalars['String']>;
+  amazonUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   categoriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  category?: InputMaybe<Scalars['String']>;
+  category_contains?: InputMaybe<Scalars['String']>;
+  category_exists?: InputMaybe<Scalars['Boolean']>;
+  category_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  category_not?: InputMaybe<Scalars['String']>;
+  category_not_contains?: InputMaybe<Scalars['String']>;
+  category_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description?: InputMaybe<Scalars['String']>;
   description_contains?: InputMaybe<Scalars['String']>;
@@ -910,6 +980,16 @@ export type PageProductLinkingCollectionsPageProductCollectionArgs = {
 };
 
 export enum PageProductOrder {
+  AliexpressPriceAsc = 'aliexpressPrice_ASC',
+  AliexpressPriceDesc = 'aliexpressPrice_DESC',
+  AliexpressUrlAsc = 'aliexpressUrl_ASC',
+  AliexpressUrlDesc = 'aliexpressUrl_DESC',
+  AmazonPriceAsc = 'amazonPrice_ASC',
+  AmazonPriceDesc = 'amazonPrice_DESC',
+  AmazonUrlAsc = 'amazonUrl_ASC',
+  AmazonUrlDesc = 'amazonUrl_DESC',
+  CategoryAsc = 'category_ASC',
+  CategoryDesc = 'category_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
   NameAsc = 'name_ASC',
@@ -1155,7 +1235,7 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, type?: string | null, slug?: string | null, name?: string | null, url?: string | null, description?: string | null, price?: number | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, type?: string | null, category?: string | null, slug?: string | null, name?: string | null, url?: string | null, amazonUrl?: string | null, aliexpressUrl?: string | null, description?: string | null, price?: number | null, amazonPrice?: string | null, aliexpressPrice?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
     { __typename?: 'ComponentSeo' }
     & SeoFieldsFragment
   ) | null, featuredProductImage?: (
@@ -1255,14 +1335,19 @@ export const BasePageProductFieldsFragmentDoc = gql`
   }
   internalName
   type
+  category
   slug
   seoFields {
     ...SeoFields
   }
   name
   url
+  amazonUrl
+  aliexpressUrl
   description
   price
+  amazonPrice
+  aliexpressPrice
   featuredProductImage {
     ...ImageFields
   }

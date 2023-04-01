@@ -495,7 +495,12 @@ type PageLandingProductsCollection {
 To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct)
 """
 type PageProduct implements Entry {
+  aliexpressPrice(locale: String): String
+  aliexpressUrl(locale: String): String
+  amazonPrice(locale: String): String
+  amazonUrl(locale: String): String
   categoriesCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): PageProductCategoriesCollection
+  category(locale: String): String
   contentfulMetadata: ContentfulMetadata!
   description(locale: String): String
   featuredProductImage(locale: String, preview: Boolean): Asset
@@ -529,7 +534,42 @@ type PageProductCollection {
 input PageProductFilter {
   AND: [PageProductFilter]
   OR: [PageProductFilter]
+  aliexpressPrice: String
+  aliexpressPrice_contains: String
+  aliexpressPrice_exists: Boolean
+  aliexpressPrice_in: [String]
+  aliexpressPrice_not: String
+  aliexpressPrice_not_contains: String
+  aliexpressPrice_not_in: [String]
+  aliexpressUrl: String
+  aliexpressUrl_contains: String
+  aliexpressUrl_exists: Boolean
+  aliexpressUrl_in: [String]
+  aliexpressUrl_not: String
+  aliexpressUrl_not_contains: String
+  aliexpressUrl_not_in: [String]
+  amazonPrice: String
+  amazonPrice_contains: String
+  amazonPrice_exists: Boolean
+  amazonPrice_in: [String]
+  amazonPrice_not: String
+  amazonPrice_not_contains: String
+  amazonPrice_not_in: [String]
+  amazonUrl: String
+  amazonUrl_contains: String
+  amazonUrl_exists: Boolean
+  amazonUrl_in: [String]
+  amazonUrl_not: String
+  amazonUrl_not_contains: String
+  amazonUrl_not_in: [String]
   categoriesCollection_exists: Boolean
+  category: String
+  category_contains: String
+  category_exists: Boolean
+  category_in: [String]
+  category_not: String
+  category_not_contains: String
+  category_not_in: [String]
   contentfulMetadata: ContentfulMetadataFilter
   description: String
   description_contains: String
@@ -597,6 +637,16 @@ type PageProductLinkingCollections {
 }
 
 enum PageProductOrder {
+  aliexpressPrice_ASC
+  aliexpressPrice_DESC
+  aliexpressUrl_ASC
+  aliexpressUrl_DESC
+  amazonPrice_ASC
+  amazonPrice_DESC
+  amazonUrl_ASC
+  amazonUrl_DESC
+  category_ASC
+  category_DESC
   internalName_ASC
   internalName_DESC
   name_ASC
