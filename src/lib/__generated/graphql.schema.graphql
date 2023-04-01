@@ -507,14 +507,12 @@ type PageProduct implements Entry {
   internalName(locale: String): String
   linkedFrom(allowedLocales: [String]): PageProductLinkingCollections
   name(locale: String): String
-  price(locale: String): Float
   productImagesCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): AssetCollection
   relatedProductsCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): PageProductRelatedProductsCollection
   seoFields(locale: String, preview: Boolean): ComponentSeo
   slug(locale: String): String
   sys: Sys!
   type(locale: String): String
-  url(locale: String): String
 }
 
 type PageProductCategoriesCollection {
@@ -593,15 +591,6 @@ input PageProductFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
-  price: Float
-  price_exists: Boolean
-  price_gt: Float
-  price_gte: Float
-  price_in: [Float]
-  price_lt: Float
-  price_lte: Float
-  price_not: Float
-  price_not_in: [Float]
   productImagesCollection_exists: Boolean
   relatedProductsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
@@ -621,13 +610,6 @@ input PageProductFilter {
   type_not: String
   type_not_contains: String
   type_not_in: [String]
-  url: String
-  url_contains: String
-  url_exists: Boolean
-  url_in: [String]
-  url_not: String
-  url_not_contains: String
-  url_not_in: [String]
 }
 
 type PageProductLinkingCollections {
@@ -651,8 +633,6 @@ enum PageProductOrder {
   internalName_DESC
   name_ASC
   name_DESC
-  price_ASC
-  price_DESC
   slug_ASC
   slug_DESC
   sys_firstPublishedAt_ASC
@@ -665,8 +645,6 @@ enum PageProductOrder {
   sys_publishedVersion_DESC
   type_ASC
   type_DESC
-  url_ASC
-  url_DESC
 }
 
 type PageProductRelatedProductsCollection {

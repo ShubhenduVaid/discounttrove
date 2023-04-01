@@ -12,11 +12,9 @@ fragment BasePageProductFields on PageProduct {
     ...SeoFields
   }
   name
-  url
   amazonUrl
   aliexpressUrl
   description
-  price
   amazonPrice
   aliexpressPrice
   featuredProductImage {

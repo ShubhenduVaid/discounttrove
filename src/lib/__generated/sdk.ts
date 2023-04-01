@@ -704,14 +704,12 @@ export type PageProduct = Entry & {
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<PageProductLinkingCollections>;
   name?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['Float']>;
   productImagesCollection?: Maybe<AssetCollection>;
   relatedProductsCollection?: Maybe<PageProductRelatedProductsCollection>;
   seoFields?: Maybe<ComponentSeo>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
   type?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
 };
 
 
@@ -786,12 +784,6 @@ export type PageProductNameArgs = {
 
 
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
-export type PageProductPriceArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProductProductImagesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -824,12 +816,6 @@ export type PageProductSlugArgs = {
 
 /** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
 export type PageProductTypeArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To output data for a single product [See type definition](https://app.contentful.com/spaces/ayp9h5fkyh9j/content_types/pageProduct) */
-export type PageProductUrlArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -911,15 +897,6 @@ export type PageProductFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  price?: InputMaybe<Scalars['Float']>;
-  price_exists?: InputMaybe<Scalars['Boolean']>;
-  price_gt?: InputMaybe<Scalars['Float']>;
-  price_gte?: InputMaybe<Scalars['Float']>;
-  price_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  price_lt?: InputMaybe<Scalars['Float']>;
-  price_lte?: InputMaybe<Scalars['Float']>;
-  price_not?: InputMaybe<Scalars['Float']>;
-  price_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
   productImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
@@ -939,13 +916,6 @@ export type PageProductFilter = {
   type_not?: InputMaybe<Scalars['String']>;
   type_not_contains?: InputMaybe<Scalars['String']>;
   type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  url?: InputMaybe<Scalars['String']>;
-  url_contains?: InputMaybe<Scalars['String']>;
-  url_exists?: InputMaybe<Scalars['Boolean']>;
-  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  url_not?: InputMaybe<Scalars['String']>;
-  url_not_contains?: InputMaybe<Scalars['String']>;
-  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type PageProductLinkingCollections = {
@@ -994,8 +964,6 @@ export enum PageProductOrder {
   InternalNameDesc = 'internalName_DESC',
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
-  PriceAsc = 'price_ASC',
-  PriceDesc = 'price_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -1007,9 +975,7 @@ export enum PageProductOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TypeAsc = 'type_ASC',
-  TypeDesc = 'type_DESC',
-  UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC'
+  TypeDesc = 'type_DESC'
 }
 
 export type PageProductRelatedProductsCollection = {
@@ -1235,7 +1201,7 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, type?: string | null, category?: string | null, slug?: string | null, name?: string | null, url?: string | null, amazonUrl?: string | null, aliexpressUrl?: string | null, description?: string | null, price?: number | null, amazonPrice?: string | null, aliexpressPrice?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+export type BasePageProductFieldsFragment = { __typename: 'PageProduct', internalName?: string | null, type?: string | null, category?: string | null, slug?: string | null, name?: string | null, amazonUrl?: string | null, aliexpressUrl?: string | null, description?: string | null, amazonPrice?: string | null, aliexpressPrice?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
     { __typename?: 'ComponentSeo' }
     & SeoFieldsFragment
   ) | null, featuredProductImage?: (
@@ -1341,11 +1307,9 @@ export const BasePageProductFieldsFragmentDoc = gql`
     ...SeoFields
   }
   name
-  url
   amazonUrl
   aliexpressUrl
   description
-  price
   amazonPrice
   aliexpressPrice
   featuredProductImage {
