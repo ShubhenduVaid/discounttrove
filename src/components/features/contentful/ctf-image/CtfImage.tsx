@@ -5,6 +5,7 @@ import { ImageFieldsFragment } from "@src/lib/__generated/sdk";
 interface ImageProps extends ImageFieldsFragment {
   imageProps?: Omit<NextImageProps, "src" | "alt">;
   quality?: number;
+  loading?: "eager" | "lazy";
 }
 
 export const CtfImage = ({
@@ -14,6 +15,7 @@ export const CtfImage = ({
   title,
   imageProps,
   quality,
+  loading,
 }: ImageProps) => {
   if (!url || !width || !height) return null;
 
@@ -22,6 +24,7 @@ export const CtfImage = ({
 
   return (
     <Image
+      loading={loading || "lazy"}
       src={url}
       width={width}
       height={height}

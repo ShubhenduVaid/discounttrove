@@ -98,6 +98,7 @@ export const HeroBanner = ({
       >
         {heroBannerImage?.url && (
           <CtfImage
+            loading="eager"
             quality={60}
             imageProps={{
               sizes: "100vw",
