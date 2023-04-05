@@ -18,9 +18,6 @@ const StyledBox = styled(Box)`
 `;
 
 export const HeroBanner = ({
-  // Tutorial: contentful-and-the-starter-template.md
-  // Uncomment the line below to make the Greeting field available to render
-  // greeting,
   heroBannerHeadline,
   heroBannerHeadlineColor,
   heroBannerImage,
@@ -133,9 +130,6 @@ export const HeroBanner = ({
               transform="translateY(0.33em)"
               whiteSpace="nowrap"
             >
-              {/* Tutorial: contentful-and-the-starter-template.md
-              {/* Uncomment the line below to render the Greeting field value */}
-              {/* {greeting} {' '} */}
               {heroBannerHeadline}
             </Heading>
           </motion.div>

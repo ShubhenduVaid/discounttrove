@@ -1,4 +1,3 @@
-import { Center } from "@chakra-ui/react";
 import Image, { ImageProps as NextImageProps } from "next/image";
 
 import { ImageFieldsFragment } from "@src/lib/__generated/sdk";

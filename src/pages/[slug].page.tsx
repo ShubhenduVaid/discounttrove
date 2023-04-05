@@ -54,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   locale,
   res,
 }) => {
-  res.setHeader("Cache-Control", "public, max-age=1800");
+  res.setHeader("Cache-Control", "public, max-age=28800");
 
   if (!params?.slug) {
     return {
