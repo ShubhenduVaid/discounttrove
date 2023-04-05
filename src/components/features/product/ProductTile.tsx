@@ -56,7 +56,7 @@ export const ProductTile = ({
           </Box>
         )}
         {featuredProductImage && (
-          <Box pt={5} overflow="hidden">
+          <Box pt={1} overflow="hidden">
             <Center>
               <CtfImage {...featuredProductImage} />
             </Center>
