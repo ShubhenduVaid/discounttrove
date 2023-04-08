@@ -6,6 +6,7 @@ interface ImageProps extends ImageFieldsFragment {
   imageProps?: Omit<NextImageProps, "src" | "alt">;
   quality?: number;
   loading?: "eager" | "lazy";
+  priority?: boolean;
 }
 
 export const CtfImage = ({
@@ -16,6 +17,7 @@ export const CtfImage = ({
   imageProps,
   quality,
   loading,
+  priority,
 }: ImageProps) => {
   if (!url || !width || !height) return null;
 
@@ -25,6 +27,7 @@ export const CtfImage = ({
   return (
     <Image
       loading={loading || "lazy"}
+      priority={priority || false}
       src={url}
       width={width}
       height={height}
