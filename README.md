@@ -1,4 +1,5 @@
 # Contentful Ecommerce Starter Template
+test
 
 An Ecommerce Starter Template powered by Next.js & Contentful, pre-designed with optimized & adjustable pages, components, and data management.
 
