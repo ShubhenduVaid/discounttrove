@@ -22,7 +22,7 @@ const Page = ({
           }}
         >
           <ProductTileGrid
-            title="Trending Now"
+            title="Spring Sale"
             products={page.productsCollection.items}
           />
         </Box>

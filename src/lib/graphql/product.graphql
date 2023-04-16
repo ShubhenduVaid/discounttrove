@@ -29,12 +29,12 @@ fragment BasePageProductFields on PageProduct {
 
 fragment PageProductFields on PageProduct {
   ...BasePageProductFields
-  relatedProductsCollection(limit: 10) {
+  relatedProductsCollection(limit: 15) {
     items {
       ...BasePageProductFields
     }
   }
-  categoriesCollection(limit: 10) {
+  categoriesCollection(limit: 15) {
     items {
       ...BasePageProductFields
     }

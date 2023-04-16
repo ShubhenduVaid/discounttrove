@@ -645,6 +645,7 @@ export type PageLandingFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  products?: InputMaybe<CfPageProductNestedFilter>;
   productsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
@@ -866,6 +867,7 @@ export type PageProductFilter = {
   amazonUrl_not?: InputMaybe<Scalars['String']>;
   amazonUrl_not_contains?: InputMaybe<Scalars['String']>;
   amazonUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  categories?: InputMaybe<CfPageProductNestedFilter>;
   categoriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
   category?: InputMaybe<Scalars['String']>;
   category_contains?: InputMaybe<Scalars['String']>;
@@ -898,6 +900,7 @@ export type PageProductFilter = {
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   productImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedProducts?: InputMaybe<CfPageProductNestedFilter>;
   relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
   seoFields_exists?: InputMaybe<Scalars['Boolean']>;
@@ -1166,6 +1169,88 @@ export type CfComponentSeoNestedFilter = {
   sys?: InputMaybe<SysFilter>;
 };
 
+export type CfPageProductNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfPageProductNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfPageProductNestedFilter>>>;
+  aliexpressPrice?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_contains?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_exists?: InputMaybe<Scalars['Boolean']>;
+  aliexpressPrice_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressPrice_not?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_not_contains?: InputMaybe<Scalars['String']>;
+  aliexpressPrice_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressUrl?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_contains?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_exists?: InputMaybe<Scalars['Boolean']>;
+  aliexpressUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  aliexpressUrl_not?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_not_contains?: InputMaybe<Scalars['String']>;
+  aliexpressUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonPrice?: InputMaybe<Scalars['String']>;
+  amazonPrice_contains?: InputMaybe<Scalars['String']>;
+  amazonPrice_exists?: InputMaybe<Scalars['Boolean']>;
+  amazonPrice_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonPrice_not?: InputMaybe<Scalars['String']>;
+  amazonPrice_not_contains?: InputMaybe<Scalars['String']>;
+  amazonPrice_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonUrl?: InputMaybe<Scalars['String']>;
+  amazonUrl_contains?: InputMaybe<Scalars['String']>;
+  amazonUrl_exists?: InputMaybe<Scalars['Boolean']>;
+  amazonUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  amazonUrl_not?: InputMaybe<Scalars['String']>;
+  amazonUrl_not_contains?: InputMaybe<Scalars['String']>;
+  amazonUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  categoriesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  category?: InputMaybe<Scalars['String']>;
+  category_contains?: InputMaybe<Scalars['String']>;
+  category_exists?: InputMaybe<Scalars['Boolean']>;
+  category_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  category_not?: InputMaybe<Scalars['String']>;
+  category_not_contains?: InputMaybe<Scalars['String']>;
+  category_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']>;
+  description_contains?: InputMaybe<Scalars['String']>;
+  description_exists?: InputMaybe<Scalars['Boolean']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not?: InputMaybe<Scalars['String']>;
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  featuredProductImage_exists?: InputMaybe<Scalars['Boolean']>;
+  internalName?: InputMaybe<Scalars['String']>;
+  internalName_contains?: InputMaybe<Scalars['String']>;
+  internalName_exists?: InputMaybe<Scalars['Boolean']>;
+  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  internalName_not?: InputMaybe<Scalars['String']>;
+  internalName_not_contains?: InputMaybe<Scalars['String']>;
+  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  productImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  relatedProductsCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  seoFields_exists?: InputMaybe<Scalars['Boolean']>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  type?: InputMaybe<Scalars['String']>;
+  type_contains?: InputMaybe<Scalars['String']>;
+  type_exists?: InputMaybe<Scalars['Boolean']>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  type_not?: InputMaybe<Scalars['String']>;
+  type_not_contains?: InputMaybe<Scalars['String']>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type ImageFieldsFragment = { __typename: 'Asset', title?: string | null, description?: string | null, width?: number | null, height?: number | null, url?: string | null, contentType?: string | null, sys: { __typename?: 'Sys', id: string } };
 
 export type PageLandingFieldsFragment = { __typename: 'PageLanding', internalName?: string | null, heroBannerHeadline?: string | null, heroBannerHeadlineColor?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
@@ -1325,12 +1410,12 @@ export const BasePageProductFieldsFragmentDoc = gql`
 export const PageProductFieldsFragmentDoc = gql`
     fragment PageProductFields on PageProduct {
   ...BasePageProductFields
-  relatedProductsCollection(limit: 10) {
+  relatedProductsCollection(limit: 15) {
     items {
       ...BasePageProductFields
     }
   }
-  categoriesCollection(limit: 10) {
+  categoriesCollection(limit: 15) {
     items {
       ...BasePageProductFields
     }
@@ -1353,7 +1438,7 @@ export const PageLandingFieldsFragmentDoc = gql`
   heroBannerImage {
     ...ImageFields
   }
-  productsCollection(limit: 10) {
+  productsCollection(limit: 22) {
     items {
       ...PageProductFields
     }

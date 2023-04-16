@@ -457,6 +457,7 @@ input PageLandingFilter {
   internalName_not: String
   internalName_not_contains: String
   internalName_not_in: [String]
+  products: cfPageProductNestedFilter
   productsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
   seoFields_exists: Boolean
@@ -560,6 +561,7 @@ input PageProductFilter {
   amazonUrl_not: String
   amazonUrl_not_contains: String
   amazonUrl_not_in: [String]
+  categories: cfPageProductNestedFilter
   categoriesCollection_exists: Boolean
   category: String
   category_contains: String
@@ -592,6 +594,7 @@ input PageProductFilter {
   name_not_contains: String
   name_not_in: [String]
   productImagesCollection_exists: Boolean
+  relatedProducts: cfPageProductNestedFilter
   relatedProductsCollection_exists: Boolean
   seoFields: cfComponentSeoNestedFilter
   seoFields_exists: Boolean
@@ -757,4 +760,86 @@ input cfComponentSeoNestedFilter {
   pageTitle_not_in: [String]
   shareImagesCollection_exists: Boolean
   sys: SysFilter
+}
+
+input cfPageProductNestedFilter {
+  AND: [cfPageProductNestedFilter]
+  OR: [cfPageProductNestedFilter]
+  aliexpressPrice: String
+  aliexpressPrice_contains: String
+  aliexpressPrice_exists: Boolean
+  aliexpressPrice_in: [String]
+  aliexpressPrice_not: String
+  aliexpressPrice_not_contains: String
+  aliexpressPrice_not_in: [String]
+  aliexpressUrl: String
+  aliexpressUrl_contains: String
+  aliexpressUrl_exists: Boolean
+  aliexpressUrl_in: [String]
+  aliexpressUrl_not: String
+  aliexpressUrl_not_contains: String
+  aliexpressUrl_not_in: [String]
+  amazonPrice: String
+  amazonPrice_contains: String
+  amazonPrice_exists: Boolean
+  amazonPrice_in: [String]
+  amazonPrice_not: String
+  amazonPrice_not_contains: String
+  amazonPrice_not_in: [String]
+  amazonUrl: String
+  amazonUrl_contains: String
+  amazonUrl_exists: Boolean
+  amazonUrl_in: [String]
+  amazonUrl_not: String
+  amazonUrl_not_contains: String
+  amazonUrl_not_in: [String]
+  categoriesCollection_exists: Boolean
+  category: String
+  category_contains: String
+  category_exists: Boolean
+  category_in: [String]
+  category_not: String
+  category_not_contains: String
+  category_not_in: [String]
+  contentfulMetadata: ContentfulMetadataFilter
+  description: String
+  description_contains: String
+  description_exists: Boolean
+  description_in: [String]
+  description_not: String
+  description_not_contains: String
+  description_not_in: [String]
+  featuredProductImage_exists: Boolean
+  internalName: String
+  internalName_contains: String
+  internalName_exists: Boolean
+  internalName_in: [String]
+  internalName_not: String
+  internalName_not_contains: String
+  internalName_not_in: [String]
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  productImagesCollection_exists: Boolean
+  relatedProductsCollection_exists: Boolean
+  seoFields_exists: Boolean
+  slug: String
+  slug_contains: String
+  slug_exists: Boolean
+  slug_in: [String]
+  slug_not: String
+  slug_not_contains: String
+  slug_not_in: [String]
+  sys: SysFilter
+  type: String
+  type_contains: String
+  type_exists: Boolean
+  type_in: [String]
+  type_not: String
+  type_not_contains: String
+  type_not_in: [String]
 }

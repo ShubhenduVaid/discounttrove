@@ -16,7 +16,7 @@ fragment PageLandingFields on PageLanding {
   heroBannerImage {
     ...ImageFields
   }
-  productsCollection(limit: 10) {
+  productsCollection(limit: 22) {
     items {
       ...PageProductFields
     }

@@ -1,7 +1,7 @@
-import { Container, Grid, GridItem, Heading } from '@chakra-ui/react';
+import { Container, Grid, GridItem, Heading } from "@chakra-ui/react";
 
-import { ProductTile } from '@src/components/features/product/ProductTile';
-import { PageProductFieldsFragment } from '@src/lib/__generated/sdk';
+import { ProductTile } from "@src/components/features/product/ProductTile";
+import { PageProductFieldsFragment } from "@src/lib/__generated/sdk";
 
 interface ProductTileGridProps {
   title: string;
@@ -17,11 +17,16 @@ export const ProductTileGrid = ({ title, products }: ProductTileGridProps) => {
         </Heading>
       )}
       <Grid
-        templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
-        rowGap={{ base: 6, lg: 6 }}
-        columnGap={{ base: 4, lg: 24 }}>
+        templateColumns={{ base: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+        rowGap={{ base: 2, lg: 6 }}
+        columnGap={{ base: 2, lg: 6 }}
+      >
         {products.map((product, index) => {
-          return <GridItem key={index}>{product ? <ProductTile {...product} /> : null}</GridItem>;
+          return (
+            <GridItem key={index}>
+              {product ? <ProductTile {...product} /> : null}
+            </GridItem>
+          );
         })}
       </Grid>
     </Container>

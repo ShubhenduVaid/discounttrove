@@ -67,7 +67,7 @@ export const HeroBanner = ({
             (containerWidth - containerWidthFluff) / headingWidth
           })`;
 
-          setHeadingVisible(true);
+          setHeadingVisible(false);
         }
       });
     };
@@ -129,7 +129,7 @@ export const HeroBanner = ({
               as="h1"
               letterSpacing="-0.11em"
               color={heroBannerHeadlineColor || "white"}
-              transform="translateY(0.33em)"
+              transform="translateY(0.099em)"
               whiteSpace="nowrap"
             >
               {heroBannerHeadline}
