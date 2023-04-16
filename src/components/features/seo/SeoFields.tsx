@@ -29,7 +29,7 @@ export const SeoFields = ({
     <NextSeo
       title={pageTitle || undefined}
       description={pageDescription || undefined}
-      canonical={""}
+      canonical={canonicalUrl || ""}
       nofollow={nofollow || false}
       noindex={noindex || false}
       languageAlternates={languageAlternates}
