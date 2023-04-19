@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/next-script-for-ga */
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -49,19 +48,23 @@ export default function Document() {
           content="Best Discounts, Best Deals, Cheap Deals, Spring Sale, Women Clothes, Kids Dress"
         ></meta>
         <meta name="author" content="Discount Trove"></meta>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-8ZK1JDH792"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {(window as any).dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-8ZK1JDH792');
-        </script>
       </Head>
       <body>
         <Main />
         <NextScript />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8ZK1JDH792"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8ZK1JDH792');
+          `}
+        </Script>
       </body>
     </Html>
   );
