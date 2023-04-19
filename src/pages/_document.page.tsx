@@ -47,6 +47,15 @@ export default function Document() {
           content="Best Discounts, Best Deals, Cheap Deals, Spring Sale, Women Clothes, Kids Dress"
         ></meta>
         <meta name="author" content="Discount Trove"></meta>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-8ZK1JDH792"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {(window as any).dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-8ZK1JDH792');
+        </script>
       </Head>
       <body>
         <Main />
