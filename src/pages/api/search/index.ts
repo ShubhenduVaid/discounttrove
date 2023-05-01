@@ -20,9 +20,11 @@ export default async function handler(
     if (imgUrl && method === "GET") {
       const params = {
         api_key: process.env.SEARCH_API_KEY,
-        url: "https://m.media-amazon.com/images/I/81XKvu0amVL._AC_UY879_.jpg",
+        url: imgUrl,
         hl: "en",
       } satisfies GoogleLensParameters;
+
+      console.log("Searched IMAGE ::", imgUrl);
 
       const response = await getJson("google_lens", params);
       const matches = response.visual_matches
