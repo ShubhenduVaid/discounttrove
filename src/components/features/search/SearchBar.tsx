@@ -7,10 +7,11 @@ import {
   Container,
   Button,
   Box,
+  useBoolean,
 } from "@chakra-ui/react";
 import { useState, useEffect, useCallback } from "react";
 import { MdImageSearch, MdSearch } from "react-icons/md";
-import { SearchTileGrid } from "@src/components/features/search";
+import { SearchTileGrid, SearchLoader } from "@src/components/features/search";
 
 interface SearchBarProps {
   imageUrl?: string;
@@ -21,31 +22,35 @@ export const SearchBar = ({ imageUrl = "", price = "" }: SearchBarProps) => {
   const [searchImageUrl, setSearchImageUrl] = useState("");
   const [searchPrice, setSearchPrice] = useState("");
   const [searchedItems, setSearchedItems] = useState([]);
+  const [isLoading, setIsLoading] = useBoolean(false);
 
-  const handleClick = useCallback(() => {
+  const handleSyntheticClick = useCallback(() => {
     if (searchImageUrl) {
+      setIsLoading.on();
       const url = `/api/search?img=${searchImageUrl}&price=${searchPrice}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          setIsLoading.off();
           setSearchedItems(data.matches);
         })
         .catch((error) => {
+          setIsLoading.off();
           console.error(error);
         });
     }
-  }, [searchImageUrl, searchPrice]);
+  }, [searchImageUrl, searchPrice, setIsLoading]);
 
   useEffect(() => {
     setSearchImageUrl(imageUrl);
     setSearchPrice(price);
     if (imageUrl && price) {
-      handleClick();
+      handleSyntheticClick();
     }
-  }, [imageUrl, price, handleClick]);
+  }, [imageUrl, price, handleSyntheticClick]);
 
   return (
-    <Container>
+    <Container style={{ display: "none" }}>
       <Grid
         templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(7, 1fr)" }}
         gap={1}
@@ -77,12 +82,18 @@ export const SearchBar = ({ imageUrl = "", price = "" }: SearchBarProps) => {
           </InputGroup>
         </GridItem>
         <GridItem colSpan={1} h="10">
-          <Button onClick={handleClick} width="100%" colorScheme="blue">
+          <Button
+            disabled={isLoading}
+            onClick={handleSyntheticClick}
+            width="100%"
+            colorScheme="blue"
+          >
             Search
           </Button>
         </GridItem>
       </Grid>
-      {searchedItems.length > 0 && (
+      {isLoading && <SearchLoader />}
+      {searchedItems.length > 0 && !isLoading && (
         <Box
           mt={{
             base: 5,

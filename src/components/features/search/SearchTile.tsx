@@ -2,8 +2,6 @@
 import { Box, Text, Center, useTheme } from "@chakra-ui/react";
 import Link from "next/link";
 
-import { CtfImage } from "@src/components/features/contentful/ctf-image";
-
 export interface SearchTileProps {
   link: string;
   price: { value: string; extracted_value: number; currency: string };
