@@ -50,7 +50,7 @@ export const SearchBar = ({ imageUrl = "", price = "" }: SearchBarProps) => {
   }, [imageUrl, price, handleSyntheticClick]);
 
   return (
-    <Container style={{ display: "none" }}>
+    <Container>
       <Grid
         templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(7, 1fr)" }}
         gap={1}
