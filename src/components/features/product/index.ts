@@ -1,3 +1,3 @@
-export * from './ProductDetails';
-export * from './ProductTile';
-export * from './ProductTileGrid';
+export * from "./ProductDetails";
+export * from "./ProductTile";
+export * from "./ProductTileGrid";
